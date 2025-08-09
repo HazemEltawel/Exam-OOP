@@ -8,17 +8,18 @@ namespace Exam_OOP
 {
     public class Answer
     {
-        public int AnswerId { get; set; }
+        public string AnswerId { get; set; }
         public string AnswerText { get; set; }
-        public Answer(int answerId, string answerText)
+
+        public Answer(string id, string text)
         {
-            AnswerId = answerId;
-            AnswerText = answerText;
-        }
-        public override string ToString()
-        {
-            return $"Answer ID: {AnswerId}, Answer Text: {AnswerText}";
+            AnswerId = id;
+            AnswerText = text;
         }
 
+        public override string ToString()
+        {
+            return $"{AnswerId}: {AnswerText}";
+        }
     }
 }

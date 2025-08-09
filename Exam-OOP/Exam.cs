@@ -8,16 +8,21 @@ namespace Exam_OOP
 {
     public abstract class Exam
     {
-        public int time { get; set; }
-        public  int numberqustion { get; set; }
-        public list<Question> questions { get; set; }
-        public Exam(int time, int numberqustion)
-        {
-            this.time = time;
-            this.numberqustion = numberqustion;
-            questions = new list<Question>;
-        }
-        public abstract void ShowExam();
+        public int Time { get; set; }
 
+        public int NumberOfQuestions { get; set; }
+
+        public List<Question> Questions { get; set; }
+
+        public Exam(int time, int numberOfQuestions)
+        {
+            Time = time;                           
+            NumberOfQuestions = numberOfQuestions; 
+
+            Questions = new List<Question>();
+        }
+
+        public abstract void ShowExam();
     }
+
 }
