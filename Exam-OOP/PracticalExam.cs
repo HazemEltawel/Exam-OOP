@@ -8,20 +8,33 @@ namespace Exam_OOP
 {
     public class PracticalExam : Exam
     {
-        public PracticalExam(int time, int numberqustion) : base(time, numberqustion)
+        public PracticalExam(int time, int numberOfQuestions)
+        : base(time, numberOfQuestions)  
         {
         }
-        public override void ShowExam()
+        public override void ShowExam() 
         {
-            
-            Console.WriteLine($"Practical Exam: Time - {time} minutes, Number of Questions - {numberqustion}");
-            foreach (var q in questions)
+            int questionNumber = 1;
+
+            foreach (var question in Questions)
             {
-                q.showQuestion();
-                Console.Write("Enter your answer ID: ");
-                int ansId = int.Parse(Console.ReadLine());            
+                Console.WriteLine($"Q{questionNumber}: {question.Header}");
+                Console.WriteLine($"{question.Body}");
+
+                foreach (var answer in question.Answers)
+                {
+                    Console.WriteLine($"{answer.AnswerId}. {answer.AnswerText}");
+                }
+
+                Console.Write("Your Answer: ");
+                string userInput = Console.ReadLine();
+
+
+                Console.WriteLine($"Correct Answer: {question.RightAnswer.AnswerId}. {question.RightAnswer.AnswerText}");
+                Console.WriteLine(new string('-', 50));
+
+                questionNumber++;
             }
-            Console.WriteLine($"Correct Answer: {q.RightAnswer.AnswerText}\n");
         }
     }
 }
